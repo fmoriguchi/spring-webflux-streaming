@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Show video</title>
+</head>
+
+<body>
+
+	<h2>Show video <span th:text="${name}"></span></h2>
+
+	<video th:src="@{/videos/{id}(id = ${name})}" 
+			width="720px"
+			height="480px" controls preload="none">
+	</video>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+package com.fmoriguchi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * 
+ * @author fmoriguchi
+ *
+ */
+@SpringBootApplication
+public class StreamingVideosApplication {
+
+	public static void main(String[] args) {
+		
+		SpringApplication.run(StreamingVideosApplication.class, args);
+	}
+
+}
