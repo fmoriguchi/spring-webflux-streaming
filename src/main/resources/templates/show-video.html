@@ -3,11 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<title>Show video</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">	
 </head>
 
 <body>
 
-	<h2>Show video <span th:text="${name}"></span></h2>
+	<h2>Video '<span th:text="${name}"></span>'</h2>
 
 	<video th:src="@{/videos/{id}(id = ${name})}" 
 			width="720px"

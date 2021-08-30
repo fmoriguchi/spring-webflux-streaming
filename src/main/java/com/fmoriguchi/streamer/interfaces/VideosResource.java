@@ -38,9 +38,24 @@ public class VideosResource {
 	}
 	
 	@PostMapping
-	public Mono<Void> postVideo(@RequestPart("name") String name, 
-								@RequestPart("video") Mono<FilePart> video) {
-				
-		return videos.post(name, video);
+	public Mono<VideoDetails> post(@RequestPart String name, 
+								   @RequestPart Mono<FilePart> video) {
+		
+		return videos.post(name, video)
+					 .thenReturn(new VideoDetails(name));
+	}
+	
+	public static final class VideoDetails {
+		
+		private final String name;
+
+		public VideoDetails(String name) {
+
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
 	}
 }

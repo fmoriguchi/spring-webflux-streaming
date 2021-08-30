@@ -4,7 +4,6 @@
 package com.fmoriguchi.streamer.domain;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,8 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-@EnableConfigurationProperties
-@ConfigurationProperties(prefix = "streamer.video")
+@ConfigurationProperties("streamer.video")
 public class StreamerProperties {
 
 	private String path;

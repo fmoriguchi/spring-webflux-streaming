@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>Post your video</title>
+	<meta charset="utf-8">
+	<title>Post your video</title>
 </head>
 
 <body>
 
-	<h1>Post Video</h1>
+	<h2>You can post your video here !</h2>
 	
 	<form action="#" th:action="@{/videos}" method="post" enctype="multipart/form-data">
 		
 		<div>
-			<label>Name</label> <input type="text" name="name"> 
+			<label>Name</label> 
+			<input type="text" name="name"> 
 			
 			<br/>
 			<br/> 
 			
-			<label>Video</label> <input type="file" name="video">
+			<label>Video</label> 
+			<input type="file" name="video">
 		</div>
 		
-		<button type="submit">Submit</button>
+		<br/>
+		
+		<button type="submit">Post</button>
 		
 	</form>
 
