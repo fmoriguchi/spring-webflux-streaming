@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  streamer:
+      image: fmoriguchi/streamer-video
+      build: .
+      ports:
+        - "8080:8080"
+      volumes:
+        - file-repository:/tmp
+
+volumes:
+  file-repository:
