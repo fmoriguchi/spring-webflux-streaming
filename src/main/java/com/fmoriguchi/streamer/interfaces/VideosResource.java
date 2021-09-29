@@ -33,29 +33,18 @@ public class VideosResource {
 
 	@GetMapping("/{name}")
 	public Mono<Resource> getBy(@PathVariable String name) {
-		
+
 		return videos.byName(name);
 	}
-	
+
 	@PostMapping
 	public Mono<VideoDetails> post(@RequestPart String name, 
 								   @RequestPart Mono<FilePart> video) {
-		
-		return videos.post(name, video)
-					 .thenReturn(new VideoDetails(name));
+
+		return videos.post(name, video).thenReturn(new VideoDetails(name));
 	}
-	
-	public static final class VideoDetails {
-		
-		private final String name;
 
-		public VideoDetails(String name) {
+	public record VideoDetails(String name) {
 
-			this.name = name;
-		}
-
-		public String getName() {
-			return name;
-		}
 	}
 }

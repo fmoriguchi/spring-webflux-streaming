@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.12_7-jdk-focal
+FROM eclipse-temurin:17-jdk-focal
 
 ARG JAR_FILE=target/*.jar
 
