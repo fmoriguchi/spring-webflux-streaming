@@ -1,7 +1,13 @@
-FROM eclipse-temurin:17-jdk-focal
+FROM maven:3.9.1-eclipse-temurin-17-alpine AS builder
 
-ARG JAR_FILE=target/*.jar
+WORKDIR /app
 
-COPY ${JAR_FILE} app.jar
+ADD . /app
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+RUN --mount=type=cache,target=/root/.m2 mvn -f /app/pom.xml clean package
+
+FROM eclipse-temurin:17-alpine
+ 
+COPY --from=builder /app/target/streaming-videos-*.jar /streaming-videos.jar
+ 
+CMD ["java", "-Xmx500m", "-jar", "/streaming-videos.jar"]
