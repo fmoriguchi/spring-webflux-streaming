@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("videos/view")
-public class VideosController {
+class VideosController {
 	
 	@GetMapping("{name}/show")
-	public String showVideo(@PathVariable String name, Model model) {
+	String showVideo(@PathVariable String name, Model model) {
 
 		model.addAttribute("name", name);
 
@@ -26,7 +26,7 @@ public class VideosController {
 	}
 
 	@GetMapping
-	public String postView() {
+	String postView() {
 
 		return "post-video";
 	}
