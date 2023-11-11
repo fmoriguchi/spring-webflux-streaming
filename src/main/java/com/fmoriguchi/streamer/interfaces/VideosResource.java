@@ -22,29 +22,29 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping("/videos")
-public class VideosResource {
+class VideosResource {
 
 	private final VideoService videos;
 
-	public VideosResource(VideoService videos) {
+	VideosResource(VideoService videos) {
 
 		this.videos = videos;
 	}
 
 	@GetMapping("/{name}")
-	public Mono<Resource> getBy(@PathVariable String name) {
+	Mono<Resource> getBy(@PathVariable String name) {
 
 		return videos.byName(name);
 	}
 
 	@PostMapping
-	public Mono<VideoDetails> post(@RequestPart String name, 
+	Mono<VideoDetails> post(@RequestPart String name, 
 								   @RequestPart Mono<FilePart> video) {
 
 		return videos.post(name, video).thenReturn(new VideoDetails(name));
 	}
 
-	public record VideoDetails(String name) {
+	record VideoDetails(String name) {
 
 	}
 }
