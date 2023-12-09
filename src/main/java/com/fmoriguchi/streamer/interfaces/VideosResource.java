@@ -38,8 +38,7 @@ class VideosResource {
 	}
 
 	@PostMapping
-	Mono<VideoDetails> post(@RequestPart String name, 
-								   @RequestPart Mono<FilePart> video) {
+	Mono<VideoDetails> post(@RequestPart String name, @RequestPart Mono<FilePart> video) {
 
 		return videos.post(name, video).thenReturn(new VideoDetails(name));
 	}

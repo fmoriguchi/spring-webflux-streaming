@@ -37,7 +37,7 @@ public class VideoService {
 
 	public Mono<Resource> byName(String name) {
 
-		var path = Paths.get(properties.getPath(), name);
+		var path = Paths.get(properties.path(), name);
 		
 		log.info("path > {}", path);
 		
@@ -46,7 +46,7 @@ public class VideoService {
 	
 	public Mono<Void> post(String name, Mono<FilePart> video) {
 		
-		var path = Paths.get(properties.getPath());
+		var path = Paths.get(properties.path());
 		
 		log.info(name);
 		

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("videos/view")
 class VideosController {
-	
+
 	@GetMapping("{name}/show")
 	String showVideo(@PathVariable String name, Model model) {
 
