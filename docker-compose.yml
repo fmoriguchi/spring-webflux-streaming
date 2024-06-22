@@ -1,6 +1,6 @@
 services:
   streamer:
-      image: fmoriguchi/streamer-videos:0.0.5
+      image: fmoriguchi/streamer-videos:0.0.6
       build: .
       ports:
         - "80:8080"
